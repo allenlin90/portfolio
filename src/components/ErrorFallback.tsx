@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { FallbackProps as ErrorFallbackProps } from 'react-error-boundary';
+import { FallbackProps } from 'react-error-boundary';
 import { type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
@@ -8,12 +8,12 @@ import { Routes } from '@/constants/routes';
 import { buttonVariants } from '@/components/ui/button';
 import { useTranslation } from 'react-i18next';
 
-interface FallbackProps
-  extends ErrorFallbackProps,
+interface ErrorFallbackProps
+  extends FallbackProps,
     VariantProps<typeof buttonVariants>,
     React.HTMLAttributes<HTMLAnchorElement> {}
 
-export const Fallback: React.FC<FallbackProps> = ({
+export const ErrorFallback: React.FC<ErrorFallbackProps> = ({
   error,
   resetErrorBoundary,
   variant,
@@ -39,4 +39,4 @@ export const Fallback: React.FC<FallbackProps> = ({
   );
 };
 
-Fallback.displayName = 'Fallback';
+ErrorFallback.displayName = 'Fallback';

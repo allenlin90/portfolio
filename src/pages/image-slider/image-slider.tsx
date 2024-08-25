@@ -42,3 +42,7 @@ export const ImageSliderPage: React.FC = () => {
     </div>
   );
 };
+
+ImageSliderPage.displayName = 'ImageSliderPage';
+
+export default ImageSliderPage;
