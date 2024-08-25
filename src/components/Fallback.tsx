@@ -6,6 +6,7 @@ import { type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 import { Routes } from '@/constants/routes';
 import { buttonVariants } from '@/components/ui/button';
+import { useTranslation } from 'react-i18next';
 
 interface FallbackProps
   extends ErrorFallbackProps,
@@ -20,6 +21,7 @@ export const Fallback: React.FC<FallbackProps> = ({
   className,
   ...props
 }) => {
+  const { t } = useTranslation();
   const onClick = useCallback(() => resetErrorBoundary(), [resetErrorBoundary]);
 
   return (
@@ -31,7 +33,7 @@ export const Fallback: React.FC<FallbackProps> = ({
         className={cn(buttonVariants({ variant, size, className }))}
         {...props}
       >
-        Back to Home
+        {t('fallback.backToHome')}
       </Link>
     </div>
   );

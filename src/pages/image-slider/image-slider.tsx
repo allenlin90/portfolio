@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import styles from './image-slider.module.css';
 
 const Images = [
@@ -12,12 +12,13 @@ const Images = [
   { src: '/images/squirtle.jpg', alt: 'squirtle' },
 ];
 
+const quantity = { '--quantity': Images.length } as React.CSSProperties;
+const position = (position: number) =>
+  ({ '--position': position } as React.CSSProperties);
+
 export const ImageSliderPage: React.FC = () => {
-  const quantity = { '--quantity': Images.length } as React.CSSProperties;
-  const position = useCallback(
-    (position: number) => ({ '--position': position } as React.CSSProperties),
-    []
-  );
+  const { t } = useTranslation();
+  const title = t('imageSlider.title');
 
   return (
     <div className={styles.banner}>
@@ -35,7 +36,7 @@ export const ImageSliderPage: React.FC = () => {
         })}
       </div>
       <div className={styles.content}>
-        <h1 data-content='POKEMON'>POKEMON</h1>
+        <h1 data-content={title}>{title}</h1>
         <div className={styles.model} />
       </div>
     </div>
