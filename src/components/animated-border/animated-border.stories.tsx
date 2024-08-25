@@ -11,5 +11,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    borderColor: ['#ff4545', '#00ff99', '#006aff', '#ff0095', '#ff4545'],
+  },
 };
