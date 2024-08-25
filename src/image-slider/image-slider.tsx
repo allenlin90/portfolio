@@ -14,9 +14,9 @@ const Images = [
 
 const quantity = { '--quantity': Images.length } as React.CSSProperties;
 const position = (position: number) =>
-  ({ '--position': position } as React.CSSProperties);
+  ({ '--position': position }) as React.CSSProperties;
 
-export const ImageSliderPage: React.FC = () => {
+export const ImageSlider: React.FC = () => {
   const { t } = useTranslation();
   const title = t('imageSlider.title');
 
@@ -43,6 +43,6 @@ export const ImageSliderPage: React.FC = () => {
   );
 };
 
-ImageSliderPage.displayName = 'ImageSliderPage';
+ImageSlider.displayName = 'ImageSlider';
 
-export default ImageSliderPage;
+export default ImageSlider;

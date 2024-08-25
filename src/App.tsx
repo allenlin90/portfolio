@@ -1,14 +1,12 @@
-import { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { ErrorBoundary } from 'react-error-boundary';
 
 import { Routes as Paths } from '@/constants/routes';
 
 import { HomePage } from '@/pages/home';
-import { ErrorFallback } from '@/components/ErrorFallback';
-import { LoadingFallback } from '@/components/LoadingFallback';
+import { ImageSliderPage } from '@/pages/image-slider';
 
-const ImageSliderPage = lazy(() => import('@/pages/image-slider/image-slider'));
+import { ErrorFallback } from '@/components/ErrorFallback';
 
 function App() {
   return (
@@ -16,14 +14,7 @@ function App() {
       <Routes>
         <Route index element={<HomePage />} />
         <Route path={Paths.UI}>
-          <Route
-            path={Paths.ImageSlider}
-            element={
-              <Suspense fallback={<LoadingFallback />}>
-                <ImageSliderPage />
-              </Suspense>
-            }
-          />
+          <Route path={Paths.ImageSlider} element={<ImageSliderPage />} />
         </Route>
       </Routes>
     </ErrorBoundary>
